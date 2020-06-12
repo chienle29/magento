@@ -1,0 +1,38 @@
+<widgets xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Widget:etc/widget.xsd">
+    <!--widget create button-->
+    <widget class="Cate\Demo\Block\Widget\ButtonTest" id="orange_test_widget_button">
+        <label>Magenest Custom Button</label>
+        <description>Create a button</description>
+    </widget>
+    <!--widget create button on color and width-->
+    <widget class="Cate\Demo\Block\Widget\Button" id="orange_test_widget">
+        <label>Magenest Custom Button On Width And Color</label>
+        <description>Create a button on width and color</description>
+        <parameters>
+            <parameter name="color" xsi:type="text" required="true" visible="true" sort_order="10">
+                <label>Color</label>
+            </parameter>
+            <parameter name="width" xsi:type="text" required="true" visible="true" sort_order="10">
+                <label>Width (px)</label>
+            </parameter>
+        </parameters>
+    </widget>
+    <!--Create button when on click random another content-->
+    <widget class="Cate\Demo\Block\Widget\ButtonRandom" id="test_widget_random_content">
+        <label>Magenest Custom button Random Content</label>
+        <description>Button Random Content</description>
+        <parameters>
+            <parameter name="content" xsi:type="text" required="true" visible="true" sort_order="1">
+                <label>Content</label>
+            </parameter>
+            <parameter name="content_random" xsi:type="text" required="true" sort_order="2" visible="true">
+                <label>Content Random</label>
+            </parameter>
+        </parameters>
+    </widget>
+    <!--Create button when hover or click random another position-->
+    <widget class="Cate\Demo\Block\Widget\ButtonPosition" id="custom_button_position">
+        <label>Magenest Custom Button Position</label>
+        <description>Onclick or hover is move another position</description>
+    </widget>
+</widgets>

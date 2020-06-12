@@ -1,0 +1,18 @@
+<button id="button_position" style="background-color: #0fa7ff; color: #333; padding: 13px 26px;border:none;position: relative">
+    MOVE ANOTHER POSITION
+</button>
+
+<script>
+    var object = document.getElementById('button_position');
+    function randomNumber(a, b) {
+        return Math.random() * (b - a) + a;
+    }
+    object.addEventListener('mouseover',function(){
+        let randX = randomNumber(0, 1000);
+        let randY = randomNumber(-200, 200);
+
+        object.style.top = randY + 'px';
+        object.style.left = randX + 'px';
+    });
+
+</script>

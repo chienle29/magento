@@ -1,0 +1,49 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Config:etc/system_file.xsd">
+    <system>
+        <tab id="magenest" translate="label" sortOrder="200">
+            <label>Magenest</label>
+        </tab>
+        <section id="clock_configration" translate="label" type="text" sortOrder="100" showInDefault="1" showInWebsite="1" showInStore="1">
+            <label>Clock Configration</label>
+            <tab>magenest</tab>
+            <resource>Cate_Demo::clock_config</resource>
+            <group id="default_clock" translate="label" type="text" sortOrder="1" showInDefault="1">
+                <label>Default Clock</label>
+                <field id="title_clock" translate="label" type="text" sortOrder="1" showInDefault="1">
+                    <label>Title Clock</label>
+                </field>
+                <field id="size_clock" translate="label" type="select" sortOrder="2" showInDefault="1">
+                    <label>Size Clock</label>
+                    <source_model>Cate\Demo\Model\Config\Source\SizeClock</source_model>
+                </field>
+                <field id="my_color_option" translate="label" type="text" sortOrder="3" showInDefault="1">
+                    <label>Color Clock</label>
+                    <frontend_model>Cate\Demo\Block\Color</frontend_model>
+                </field>
+                <field id="text_color" translate="label" type="text" sortOrder="4" showInDefault="1">
+                    <label>Text Color</label>
+                    <frontend_model>Cate\Demo\Block\Color</frontend_model>
+                </field>
+                <field id="clock_type" translate="label" sortOrder="5" showInDefault="1">
+                    <label>Clock Type</label>
+                    <frontend_model>Cate\Demo\Block\Type</frontend_model>
+                    <backend_model>Magento\Config\Model\Config\Backend\Serialized\ArraySerialized</backend_model>
+                </field>
+            </group>
+        </section>
+        <section id="color_option_section" translate="label" type="text" sortOrder="100" showInDefault="1" showInWebsite="1" showInStore="1">
+            <label>Color Options</label>
+            <tab>magenest</tab>
+            <resource>Cate_Demo::color_option</resource>
+            <group id="color_option_group" translate="label" type="text" sortOrder="1" showInDefault="1">
+                <label>Color</label>
+                <field id="color_field" translate="label" sortOrder="5" showInDefault="1">
+                    <label>Color Options</label>
+                    <frontend_model>Cate\Demo\Block\Background</frontend_model>
+                    <backend_model>Magento\Config\Model\Config\Backend\Serialized\ArraySerialized</backend_model>
+                </field>
+            </group>
+        </section>
+    </system>
+</config>

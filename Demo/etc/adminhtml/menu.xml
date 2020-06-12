@@ -1,0 +1,52 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Backend:etc/menu.xsd">
+    <menu>
+        <add
+            id="Cate_Demo::Clock"
+            title="Clock"
+            module="Cate_Demo"
+            sortOrder="20"
+            resource="Cate_Sub::clock"
+            translate="title"
+        />
+        <add
+            id="Cate_Demo::manager"
+            translate="title"
+            title="Countdown Management"
+            module="Cate_Demo"
+            sortOrder="60"
+            parent="Cate_Demo::Clock"
+            resource="Cate_Demo::manager"
+            action="cataloger/index/index"
+        />
+        <add
+            id="Cate_Demo::config"
+            translate="title"
+            title="Clock Configration"
+            module="Cate_Demo"
+            sortOrder="61"
+            parent="Cate_Demo::Clock"
+            resource="Cate_Demo::config"
+            action="admin/system_config/edit/section/clock_configration/"
+        />
+
+        <add
+            id="Cate_Demo::magenest"
+            translate="title"
+            title="Magenest"
+            module="Cate_Demo"
+            sortOrder="30"
+            resource="Cate_Demo::magenest"
+        />
+        <add
+            id="Cate_Demo::list_magenest"
+            translate="title"
+            title="Magenest Rules"
+            module="Cate_Demo"
+            sortOrder="1"
+            resource="Cate_Demo::magenest_rules"
+            parent="Cate_Demo::magenest"
+            action="magenest/rules/index"
+        />
+    </menu>
+</config>

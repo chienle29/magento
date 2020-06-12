@@ -1,0 +1,21 @@
+<button name="random_custom" id="random_custom"
+        style="border: none; background-color: #a3a3a3; color:#333; font-size: 16px; padding: 14px 28px;"
+>
+    <?= $block->escapeHtml($block->getData('content')) ?>
+</button>
+<script type="text/javascript">
+        var click = 1;
+        var obj = document.getElementById('random_custom');
+        obj.addEventListener("click", function(){
+            let content = "<?= $block->escapeHtml($block->getData('content')); ?>";
+            let random = "<?= $block->escapeHtml($block->getData('content_random')); ?>";
+
+            if(click === 1){
+                obj.innerText = random;
+                click = 2;
+            }else{
+                obj.innerHTML = content;
+                click = 1;
+            }
+        });
+</script>

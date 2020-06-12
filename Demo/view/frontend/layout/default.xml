@@ -1,0 +1,18 @@
+<?xml version="1.0"?>
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <head>
+        <css src="Cate_Demo/css/chien.css" rel="stylesheet" type="text/css"  />
+    </head>
+    <body>
+        <referenceBlock name="header-wrapper">
+            <container name="clock_container_xample" htmlTag="div" htmlClass="clock-main">
+                <block class="Cate\Demo\Block\Clock" name="clock_block" template="Cate_Demo::Clock.phtml">
+                </block>
+            </container>
+        </referenceBlock>
+        <referenceContainer name="top.container">
+            <block name="switch_color" class="Cate\Demo\Block\HomeTemplates" template="Cate_Demo::HomeTemplates.phtml" />
+        </referenceContainer>
+    </body>
+</page>
