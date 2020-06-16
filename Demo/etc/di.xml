@@ -16,4 +16,11 @@
 
 <!--    Repository Magenest Rules Table-->
     <preference for="Cate\Demo\Api\MagenestRepositoryInterface" type="Cate\Demo\Model\MagenestRepository" />
+
+    <!--test controller and interface-->
+    <type name="Cate\Demo\Controller\Test\First">
+        <arguments>
+            <argument name="my" xsi:type="object">Cate\Demo\Model\MyTest</argument>
+        </arguments>
+    </type>
 </config>

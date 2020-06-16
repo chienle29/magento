@@ -10,5 +10,15 @@
         "constraint": {
             "PRIMARY": true
         }
+    },
+    "magenest_model_load": {
+        "column": {
+            "id": true,
+            "time_load": true,
+            "time_save": true
+        },
+        "constraint": {
+            "PRIMARY": true
+        }
     }
 }

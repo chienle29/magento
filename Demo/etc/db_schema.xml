@@ -19,12 +19,4 @@
             <column name="id" />
         </constraint>
     </table>
-
-    <table name="magenest_model_save" resource="default" engine="innodb" comment="Magenest Model Table" disabled="true">
-        <column xsi:type="int" name="id" padding="10" nullable="false" identity="true" unsigned="true" comment="ID" />
-        <column xsi:type="datetime" name="date_closed" comment="Time load model" />
-        <constraint xsi:type="primary" referenceId="PRIMARY">
-            <column name="id" />
-        </constraint>
-    </table>
 </schema>

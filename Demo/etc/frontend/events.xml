@@ -4,7 +4,7 @@
 <!--        <observer name="addProductItemsToCart" instance="Cate\Demo\Observer\CheckCart" />-->
 <!--    </event>-->
 
-    <event name="sales_quote_product_add_after">
+    <event name="checkout_cart_product_add_before">
         <observer name="cate_demo_add_product_to_cart_before" instance="Cate\Demo\Observer\AddProductToCart" />
     </event>
 </config>
