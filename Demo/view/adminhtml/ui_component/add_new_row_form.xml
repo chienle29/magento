@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<form xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Ui:etc/ui_configuration.xsd">
+<form xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Ui:etc/ui_configuration.xsd">
     <argument name="data" xsi:type="array">
         <item name="js_config" xsi:type="array">
             <item name="provider" xsi:type="string">add_new_row_form.cate_demo_magenest_demo_listing_data_source</item>
@@ -28,15 +29,15 @@
     </argument>
     <dataSource name="cate_demo_magenest_demo_listing_data_source">
         <argument name="dataProvider" xsi:type="configurableObject">
-            <argument name="class" xsi:type="string">Cate\Sub\Model\DataProvider</argument>
+            <argument name="class" xsi:type="string">Cate\Demo\Model\Message\DataProvider</argument>
             <argument name="name" xsi:type="string">cate_demo_magenest_demo_listing_data_source</argument>
-            <argument name="primaryFieldName" xsi:type="string">cate_id</argument>
+            <argument name="primaryFieldName" xsi:type="string">id</argument>
             <argument name="requestFieldName" xsi:type="string">id</argument>
         </argument>
         <argument name="data" xsi:type="array">
             <item name="js_config" xsi:type="array">
                 <item name="component" xsi:type="string">Magento_Ui/js/form/provider</item>
-                <item name="submit_url" path="magenest/rules/save" xsi:type="url" />
+                <item name="submit_url" path="magenest/rules/save" xsi:type="url"/>
             </item>
         </argument>
     </dataSource>
@@ -44,7 +45,7 @@
         <argument name="data" xsi:type="array">
             <item name="config" xsi:type="array">
                 <item name="collapsible" xsi:type="boolean">false</item>
-                <item name="label" xsi:type="string" translate="true">Category Details</item>
+                <item name="label" xsi:type="string" translate="true">Magenest Details</item>
                 <item name="sortOrder" xsi:type="number">20</item>
             </item>
         </argument>
@@ -120,8 +121,6 @@
                     <item name="formElement" xsi:type="string">textarea</item>
                     <item name="source" xsi:type="string">magenest_rules</item>
                     <item name="dataScope" xsi:type="string">conditions_serialized</item>
-                    <item name="cols" xsi:type="number">15</item>
-                    <item name="rows" xsi:type="number">5</item>
                     <item name="validation" xsi:type="array">
                         <item name="required-entry" xsi:type="boolean">true</item>
                     </item>

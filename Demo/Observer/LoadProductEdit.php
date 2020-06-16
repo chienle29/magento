@@ -27,20 +27,20 @@ class LoadProductEdit implements ObserverInterface
     public function execute(Observer $observer)
     {
         //hide custom_magenest column to product grid
-        $firstName = $this->auth->getUser()->getFirstname();
-        $one = substr($firstName,0,1);
-        $pattern = "/^[a-mA-M]$/";
-        if(preg_match($pattern, $one)){
-            $data = $this->eavConfig->getAttribute('catalog_product','custom_magenest');
-            $data->setData('is_used_in_grid',1);
-            $data->setData('is_visible_in_grid',1);
-            $data->save();
-        }else{
-            $data = $this->eavConfig->getAttribute('catalog_product','custom_magenest');
-            $data->setData('is_used_in_grid',0);
-            $data->setData('is_visible_in_grid',0);
-            $data->save();
-        }
+//        $firstName = $this->auth->getUser()->getFirstname();
+//        $one = substr($firstName,0,1);
+//        $pattern = "/^[a-mA-M]$/";
+//        if(preg_match($pattern, $one)){
+//            $data = $this->eavConfig->getAttribute('catalog_product','custom_magenest');
+//            $data->setData('is_used_in_grid',1);
+//            $data->setData('is_visible_in_grid',1);
+//            $data->save();
+//        }else{
+//            $data = $this->eavConfig->getAttribute('catalog_product','custom_magenest');
+//            $data->setData('is_used_in_grid',0);
+//            $data->setData('is_visible_in_grid',0);
+//            $data->save();
+//        }
         //add 'varchar' string to attribute custom_magenest of product
         $product = $observer->getData('collection')->getItems();
         foreach($product as $value){

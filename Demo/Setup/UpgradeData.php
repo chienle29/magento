@@ -35,30 +35,31 @@ class UpgradeData implements UpgradeDataInterface
     public function upgrade(ModuleDataSetupInterface $setup, ModuleContextInterface $context)
     {
         //get current version
-        $objectManager = \Magento\Framework\App\ObjectManager::getInstance();
-        $productMetadata = $objectManager->get('Magento\Framework\App\ProductMetadataInterface');
-        $version = $productMetadata->getVersion();
-        $currentVersion = (float)$version;
-        //get data column conditions_serialized
-        $data = $this->magenestFactory->create()->getCollection()->addFieldToSelect(array('id', 'conditions_serialized'));
-        //compare
-        foreach ($data->getData() as $value) {
-            $isSerialized = $this->isSerialized($value['conditions_serialized']);
-            $arr = $isSerialized ? $this->serialize->unserialize($value['conditions_serialized']) : $this->json->unserialize($value['conditions_serialized']);
-            $table = $this->magenestFactory->create()->load($value['id']);
-
-            if ($currentVersion < 2.2) {
-                $table->setConditionsSerialized($this->json->serialize($arr));
-            } else {
-                $table->setConditionsSerialized($this->serialize->serialize($arr));
-            }
-            $table->save();
-        }
-
+//        $objectManager = \Magento\Framework\App\ObjectManager::getInstance();
+//        $productMetadata = $objectManager->get('Magento\Framework\App\ProductMetadataInterface');
+//        $version = $productMetadata->getVersion();
+//        $currentVersion = (float)$version;
+//        //get data column conditions_serialized
+//        $data = $this->magenestFactory->create()->getCollection()->addFieldToSelect(array('id', 'conditions_serialized'));
+//        //compare
+//        foreach ($data->getData() as $value) {
+//            $isSerialized = $this->isSerialized($value['conditions_serialized']);
+//            $arr = $isSerialized ? $this->serialize->unserialize($value['conditions_serialized']) : $this->json->unserialize($value['conditions_serialized']);
+//            $table = $this->magenestFactory->create()->load($value['id']);
+//
+//            if ($currentVersion < 2.2) {
+//                $table->setConditionsSerialized($this->json->serialize($arr));
+//            } else {
+//                $table->setConditionsSerialized($this->serialize->serialize($arr));
+//            }
+//            $table->save();
+//        }
+        $categorySetup = $this->categorySetupFactory->create(['setup' => $setup]);
         //create product attribute
 
 
-        if (version_compare($context->getVersion(), '1.2.5') < 0) {
+        if (version_compare($context->getVersion(), '1.2.6') < 0) {
+
             $customerData = $this->customer->create()->getData();
             $arr = "";
             foreach($customerData as $value)
@@ -68,7 +69,7 @@ class UpgradeData implements UpgradeDataInterface
             $arr = trim($arr);
             $arr = explode(",",$arr);
 
-            $categorySetup = $this->categorySetupFactory->create(['setup' => $setup]);
+
             $entityTypeId = $categorySetup->getEntityTypeId(\Magento\Catalog\Model\Product::ENTITY);
 
 
@@ -82,13 +83,13 @@ class UpgradeData implements UpgradeDataInterface
                 'apply_to' => 'simple,configurable,virtual,bundle,downloadable',
                 'unique' => false,
                 'group' => 'Magenest',
-                'is_used_in_grid' => true,
-                'is_visible_in_grid' => true,
+                'is_used_in_grid' => false,
+                'is_visible_in_grid' => false,
                 'is_filterable_in_grid' => true,
                 'visible' => true,
                 'user_defined' => false,
-                'searchable' => true,
-                'filterable' => true,
+                'searchable' => false,
+                'filterable' => false,
                 'comparable' => true,
                 'is_html_allowed_on_front' => false,
                 'used_for_sort_by' => true,
@@ -106,8 +107,8 @@ class UpgradeData implements UpgradeDataInterface
                 'apply_to' => 'simple,configurable,virtual,bundle,downloadable',
                 'unique' => false,
                 'group' => 'Magenest',
-                'is_used_in_grid' => true,
-                'is_visible_in_grid' => true,
+                'is_used_in_grid' => false,
+                'is_visible_in_grid' => false,
                 'is_filterable_in_grid' => true,
                 'visible' => true,
                 'user_defined' => false,
@@ -158,7 +159,7 @@ class UpgradeData implements UpgradeDataInterface
         $categorySetup->updateAttribute(\Magento\Catalog\Model\Product::ENTITY, 'cost', 'apply_to', implode(',', $applyTo));
 
 
-    }
+   }
 
     //Is the serialized
     private function isSerialized($value)

@@ -13,4 +13,7 @@
             <argument name="resourceModel" xsi:type="string">Cate\Demo\Model\ResourceModel\Magenest</argument>
         </arguments>
     </virtualType>
+
+<!--    Repository Magenest Rules Table-->
+    <preference for="Cate\Demo\Api\MagenestRepositoryInterface" type="Cate\Demo\Model\MagenestRepository" />
 </config>

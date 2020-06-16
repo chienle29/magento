@@ -23,18 +23,18 @@ class CheckCart implements ObserverInterface
     public function execute(\Magento\Framework\Event\Observer $observer)
     {
         // Check and set information according to your need
-        $date = $this->_request->getParam('example-date');
-        $product = $observer->getProduct();
-        if ($this->_request->getFullActionName() == 'checkout_cart_add') {
-            //checking when product is adding to cart
-            $product = $observer->getProduct();
-            $additionalOptions = [];
-            $additionalOptions[] = array(
-                'label' => "Delivery Date:", //Custom option label
-                'value' => $date, //Custom option value
-            );
-            $product->addCustomOption('additional_options', $this->serializer->serialize($additionalOptions));
-        }
+//        $date = $this->_request->getParam('example-date');
+//        $product = $observer->getProduct();
+//        if ($this->_request->getFullActionName() == 'checkout_cart_add') {
+//            //checking when product is adding to cart
+//            $product = $observer->getProduct();
+//            $additionalOptions = [];
+//            $additionalOptions[] = array(
+//                'label' => "Delivery Date:", //Custom option label
+//                'value' => $date, //Custom option value
+//            );
+//            $product->addCustomOption('additional_options', $this->serializer->serialize($additionalOptions));
+//        }
     }
 
 }

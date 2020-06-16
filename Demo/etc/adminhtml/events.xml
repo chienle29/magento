@@ -9,4 +9,8 @@
     <event name="adminhtml_catalog_product_edit_prepare_form">
         <observer name="setStartDateMaxValue" instance="Cate\Demo\Observer\Datetime"/>
     </event>
+    <!--event magenest_rules_before_save-->
+    <event name="magenest_rules_before_save">
+        <observer name="cate_demo_magenest_rules_before_save" instance="Cate\Demo\Observer\MagenestBeforeSave"/>
+    </event>
 </config>
