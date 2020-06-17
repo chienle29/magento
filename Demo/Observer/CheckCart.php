@@ -22,6 +22,7 @@ class CheckCart implements ObserverInterface
      */
     public function execute(\Magento\Framework\Event\Observer $observer)
     {
+
         // Check and set information according to your need
 //        $date = $this->_request->getParam('example-date');
 //        $product = $observer->getProduct();

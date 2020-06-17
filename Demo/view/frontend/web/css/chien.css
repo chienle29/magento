@@ -6,3 +6,11 @@
 .clock-main{
     font-family: 'Orbitron';
 }
+.custom-price-login{
+    color:#fff8d7;
+    font-size: 11px;
+    text-transform: uppercase;
+    padding: 5px 10px;
+    background:#288ad6;
+    white-space: nowrap;
+}

@@ -1,6 +1,5 @@
 <?php
 
-
 namespace Cate\Demo\Setup;
 
 use Magento\Framework\Setup\UpgradeSchemaInterface;
