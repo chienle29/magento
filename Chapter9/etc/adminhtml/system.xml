@@ -7,8 +7,9 @@
             <resource>Cate_Chapter9::hide_price</resource>
             <group id="hide_price_group" translate="label" type="text" sortOrder="1" showInDefault="1">
                 <label>Hide Price Options</label>
-                <field id="hide_price_title" translate="label" type="boolean" sortOrder="1" showInDefault="1">
+                <field id="hide_price_title" translate="label" type="select" sortOrder="1" showInDefault="1">
                     <label>Hide Price Product Page</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
                 </field>
             </group>
         </section>

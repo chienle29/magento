@@ -140,5 +140,4 @@ define(['jquery', 'uiComponent', 'ko'], function ($, Component, ko) {
                 }
             }
         });
-    }
-);
+    });

@@ -1,0 +1,15 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:Acl/etc/acl.xsd">
+    <acl>
+        <resources>
+            <resource id="Magento_Backend::admin">
+                <resource id="Cate_Sub::product" title="Product Main" sortOrder="100">
+                    <resource id="Cate_Sub::ProductList" title="Product List" sortOrder="1" />
+                </resource>
+                <resource id="Cate_Sub::category" title="Category Main" sortOrder="101">
+                    <resource id="Cate_Sub::CategoryList" title="Category List" sortOrder="1" />
+                </resource>
+            </resource>
+        </resources>
+    </acl>
+</config>

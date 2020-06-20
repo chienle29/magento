@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<schema xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="urn:magento:framework:Setup/Declaration/Schema/etc/schema.xsd">
+    <table name="employees" resource="default" engine="innodb" comment="Employee" disabled="true">
+        <column xsi:type="int" name="emp_id" padding="10" unsigned="true" nullable="false"
+                identity="true" comment="Employee ID"/>
+        <column xsi:type="varchar" name="emp_email" nullable="false" length="255" comment="Employee Email"/>
+        <column xsi:type="datetime" name="created_at" on_update="false" nullable="false"
+                comment="Created At"/>
+        <column xsi:type="smallint" name="emp_status" padding="5" unsigned="true" nullable="false" identity="false"
+                default="0" comment="Still employeed or resigned"/>
+        <constraint xsi:type="primary" referenceId="PRIMARY">
+            <column name="emp_id"/>
+        </constraint>
+        <index referenceId="EMPLOYEES_EMP_EMAIL" indexType="btree">
+            <column name="emp_email"/>
+        </index>
+    </table>
+
+    <table name="custom_category" resource="default" engine="innodb" comment="Category Table">
+        <column xsi:type="smallint" name="cate_id" padding="6" unsigned="false" nullable="false" identity="true" comment="Category ID" />
+        <column name="cate_name" nullable="false" xsi:type="varchar" length="255" comment="Category Name"/>
+        <column xsi:type="smallint" padding="6" name="parent_id" nullable="false" comment="Parent ID" />
+        <column name="created_at" xsi:type="timestamp" nullable="false" comment="Created At" />
+        <column name="updated_at" xsi:type="timestamp" nullable="false" comment="Updated At" />
+        <constraint xsi:type="primary" referenceId="PRIMARY">
+            <column name="cate_id"/>
+        </constraint>
+    </table>
+    <table name="custom_product" engine="innodb" resource="default" comment="Product Table">
+        <column xsi:type="smallint" name="product_id" unsigned="false" identity="true" nullable="false" padding="6" comment="Product Table" />
+        <column xsi:type="varchar" name="product_name" length="255" nullable="false" comment="Product Name" />
+        <column xsi:type="smallint" name="cate_id" nullable="false" comment="Cate ID Foreign Key" padding="6" />
+        <column xsi:type="int" name="product_price" padding="20" nullable="false" comment="Product Price" />
+        <column xsi:type="text" name="product_description" nullable="true" comment="Product Description" />
+        <column xsi:type="varchar" name="product_image" nullable="false" comment="Product Image" length="255" />
+        <column xsi:type="timestamp" name="created_at" nullable="false" comment="Created At" />
+        <column xsi:type="timestamp" name="updated_at" nullable="false" comment="Updated At" />
+
+        <constraint xsi:type="primary" referenceId="PRIMARY">
+            <column name="product_id" />
+        </constraint>
+        <constraint xsi:type="foreign" referenceId="FOREIGN_PRODUCT_REFERENCE_CATEGORY" table="custom_product" column="cate_id" referenceTable="custom_category" referenceColumn="cate_id" onDelete="CASCADE"/>
+    </table>
+</schema>

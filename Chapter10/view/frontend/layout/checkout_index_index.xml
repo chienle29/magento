@@ -1,4 +1,8 @@
 <page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" layout="1column" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <head>
+        <css src="Cate_Chapter10/css/authenticate.css" rel="stylesheet" type="text/css" />
+        <css src="https://use.fontawesome.com/releases/v5.7.1/css/all.css" src_type="url"/>
+    </head>
     <body>
         <referenceBlock name="checkout.root">
             <arguments>
@@ -14,7 +18,7 @@
                                             <!--To display step content before shipping step "sortOrder" value should be < 1-->
                                             <!--To display step content between shipping step and payment step  1 < "sortOrder" < 2 -->
                                             <!--To display step content after payment step "sortOrder" > 2 -->
-                                            <item name="sortOrder" xsi:type="string">2</item>
+                                            <item name="sortOrder" xsi:type="string">1</item>
                                             <item name="children" xsi:type="array">
                                                 <!--add here child component declaration for your step-->
                                             </item>
@@ -27,5 +31,9 @@
                 </argument>
             </arguments>
         </referenceBlock>
+
+        <referenceContainer name="page.wrapper">
+            <block class="Cate\Chapter10\Block\Total" name="custom.navigation.page" template="Cate_Chapter10::navigation.phtml" before="footer" />
+        </referenceContainer>
     </body>
 </page>

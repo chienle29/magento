@@ -1,0 +1,16 @@
+{
+    "employees": {
+        "column": {
+            "emp_id": true,
+            "emp_email": true,
+            "created_at": true,
+            "emp_status": true
+        },
+        "index": {
+            "EMPLOYEES_EMP_EMAIL": true
+        },
+        "constraint": {
+            "PRIMARY": true
+        }
+    }
+}

@@ -1,0 +1,16 @@
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../../../../../lib/internal/Magento/Framework/ObjectManager/etc/config.xsd">
+    <!--data source custom_category grid-->
+    <type name="Magento\Framework\View\Element\UiComponent\DataProvider\CollectionFactory">
+        <arguments>
+            <argument name="collections" xsi:type="array">
+                <item name="cate_sub_category_listing_data_source" xsi:type="string">category_collection</item>
+            </argument>
+        </arguments>
+    </type>
+    <virtualType name="category_collection" type="Magento\Framework\View\Element\UiComponent\DataProvider\SearchResult">
+        <arguments>
+            <argument name="mainTable" xsi:type="string">custom_category</argument>
+            <argument name="resourceModel" xsi:type="string">Cate\Sub\Model\ResourceModel\Category</argument>
+        </arguments>
+    </virtualType>
+</config>
